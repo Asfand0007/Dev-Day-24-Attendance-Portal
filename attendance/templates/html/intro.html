@@ -1,0 +1,69 @@
+{% extends 'html/base.html' %}
+{% load static %}
+{% block extra_header %}
+  <link rel="stylesheet" href="{% static 'introStyles.css' %}" />
+{% endblock %}
+
+{% block title %}
+  <title>Developer Day Mark Attendance</title>
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="box">
+      <div class="haha">
+        <img src="{% static 'img/DD24_Logo_With_Tagline.png' %}" alt="Developer Day Logo" />
+        <div class="heading h3 mt-3">Mark Attendance</div>
+      </div>
+      <div class="d-flex justify-content-center align-items-center flex-column" style="margin-top: 1.3rem;">
+        {% if msg %}
+          <div class="alert alert-danger" style="font-size: 0.8rem;" role="alert">
+            <div>{{ msg }}</div>
+          </div>
+        {% endif %}
+        <form id="attendanceform" action="{% url 'attendance:landing_page' %}" method="post">
+          {% csrf_token %}
+          <input type="text" id="code" class="form-control" name="code" placeholder="Enter code here" maxlength="9" required />
+          <input type="hidden" id="latitude" name="latitude" />
+          <input type="hidden" id="longitude" name="longitude" />
+          <button type="button" id="submitBtn" class="submit-button btn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script>
+    function showPosition(position) {
+      var latitude = position.coords.latitude
+      var longitude = position.coords.longitude
+      document.getElementById('latitude').value = latitude
+      document.getElementById('longitude').value = longitude
+      document.getElementById('attendanceform').submit()
+    }
+    
+    function getLocation() {
+      if ('geolocation' in navigator) {
+        navigator.geolocation.getCurrentPosition(showPosition, function (error) {
+          console.error('Error getting geolocation:', error.message)
+          // If geolocation fails, submit the form without location data
+          document.getElementById('attendanceform').submit()
+        })
+      } else {
+        console.error('Geolocation is not supported by this browser')
+        // If geolocation is not supported, submit the form without location data
+        document.getElementById('attendanceform').submit()
+      }
+    }
+    
+    document.getElementById('submitBtn').addEventListener('click', function (event) {
+      event.preventDefault() // Prevent the button from submitting the form immediately
+      getLocation()
+    })
+    
+    document.getElementById('code').addEventListener('keydown', function (event) {
+      if (event.key === 'Enter') {
+        event.preventDefault() // Prevent the default form submission
+        getLocation() // Manually trigger the form submission
+      }
+    })
+  </script>
+{% endblock %}

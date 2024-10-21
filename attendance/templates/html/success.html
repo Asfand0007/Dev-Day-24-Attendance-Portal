@@ -1,0 +1,20 @@
+{% extends 'html/base.html' %}
+{% load static %}
+
+{% block title %}
+  <title>Developer Day Attendance Confirmation</title>
+{% endblock %}
+
+{% block extra_header %}
+  <link rel="stylesheet" href="{% static 'successStyles.css' %}" />
+{% endblock %}
+
+{% block body %}
+  <div class="container">
+    <div class="content">
+      <img src="{% static '/img/DD24_Logo_With_Tagline.png' %}" alt="Developer Day Logo" /> <!-- Corrected path for the image -->
+      <div class="heading h2">Thank you!</div>
+      <div class="text fs-6">Thank you, {{ teamName }}, for attending Developers' Day 2024. {{ msg }}</div>
+    </div>
+  </div>
+{% endblock %}

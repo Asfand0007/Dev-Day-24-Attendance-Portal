@@ -1,0 +1,195 @@
+/* Define CSS variables for colors */
+:root {
+  --dark-blue: #003b66;
+  --white: #fff;
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --light-blue: #9bd7e6;
+  --blue: #007dd8;
+  --dark-blue: #0067b2;
+  --background-text-color: #00a0bf;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background-text-color);
+  color: var(--white);
+  line-height: 1.8;
+  overflow: auto;
+}
+
+.background-text {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  color: var(--white);
+  font-size: 4rem;
+  letter-spacing: -5px;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 2px;
+  z-index: 1;
+  animation: spam 10s infinite;
+  user-select: none;
+}
+
+.background-text span {
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--white);
+  font-size: 5em;
+  letter-spacing: -5px;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 2px;
+  z-index: 1;
+  flex-direction: column;
+  animation: spam 10s infinite;
+  content: "DREAM DEVELOP DELIVER";
+}
+
+.infobuttton {
+  border-radius: 100%;
+}
+
+/* @keyframes spam {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-40px, -40px);
+  }
+  50% {
+    transform: translate(0, 0);
+  }
+  75% {
+    transform: translate(40px, 40px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+*/
+
+@media screen and (max-width: 768px) {
+
+  /* .logo {
+    width: 250px;
+    margin-top: -30px;
+  }
+  .box {
+    padding: 40px;
+  }
+  body {
+    overflow: auto;
+  } */
+  .background-text {
+    font-size: 3rem;
+  }
+}
+
+.infobutton {
+  /* z-index: 1500; */
+  /* right: 1rem; */
+  height: 3rem;
+  /* bottom: 2rem; */
+  width: 3rem;
+  background-color: white;
+  border-radius: 100%;
+  border: 2px dashed white;
+  align-self: flex-end;
+  cursor: pointer;
+}
+
+.infobox {
+  /* z-index: 1162; */
+  /* right: 5rem; */
+  height: 9rem;
+  /* bottom: 4rem; */
+  width: 23rem;
+  background-color: white;
+  border-radius: 10px;
+  border: 2px solid #003B66;
+  color: #003B66;
+  padding: 15px 15px;
+  align-self: flex-start;
+  display: none;
+}
+
+.infotooltip {
+  background-color: #003B66;
+  border-radius: 10px;
+  border: 2px solid #003B66;
+  color: white;
+  padding: 0px 15px;
+  width: 6rem;
+  align-self: flex-end;
+  margin: 0.5rem;
+  display: none;
+}
+
+.dum {
+  bottom: 1rem;
+  position: fixed;
+  z-index: 1160;
+  right: 1rem;
+  display: flex;
+  flex-direction: column;
+  width: 28rem;
+}
+
+@media screen and (max-width: 500px) {
+
+  .infobutton {
+    width: 2rem;
+    height: 2rem;
+  }
+  .infobox {
+    width: 17rem;
+    height: 9rem;
+    font-size: 0.95rem
+  }
+  .dum {
+    width: 21rem;
+  }
+}
+
+.h3 {
+  font-size: calc(1.3rem + 0.6vw);
+}
+
+.h2 {
+  font-size: calc(1.325rem + .9vw);
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--bs-heading-color);
+}
